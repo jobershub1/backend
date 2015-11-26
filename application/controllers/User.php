@@ -1,7 +1,7 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+//defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Employee extends CI_Controller {
+class User extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,12 +18,17 @@ class Employee extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
-	{
+	public function __construct(){
+		parent::__construct();
+		$this->load->library('table');
+		$this->load->model('user_model');
+	}
+	public function index(){
 		$this->load->view('welcome_message');
 	}
 	public function signup(){
-		
+		$this->load->model('user_model');
+		$this->users_model->insert_signup_details(); 
 	}
 	public function login(){
 		
