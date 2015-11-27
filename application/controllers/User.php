@@ -22,13 +22,14 @@ class User extends CI_Controller {
 		parent::__construct();
 		$this->load->library('table');
 		$this->load->model('user_model');
+
 	}
 	public function index(){
+
 		$this->load->view('welcome_message');
 	}
 	public function signup(){
-		$this->load->model('user_model');
-		$this->users_model->insert_signup_details(); 
+		$this->user_model->insert_signup_details();
 	}
 	public function login(){
 		
